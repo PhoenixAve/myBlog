@@ -1,6 +1,6 @@
 ---
 title: javascript之变量 
-date: 2015-03-10 21:03:08
+date: 2015-03-10 21:40:20
 tags: javascript
 grammar_cjkRuby: true
 ---
@@ -54,12 +54,12 @@ function (){ // 定义一个Function类型，名为fn的函数
 - 字符串要用引号引起，单引号和双引号的作用是等效的
 - 字符串是由一个个字符组成的，获取一个字符串的长度可以使用length属性
 - 转义符
-![转义符](img/转义符.png)
+![转义符](javascript之变量/转义符.png)
 - 字符串的不可变---->其他类型重新赋值直接在内存上修改，字符串的修改要重新申请内存
 	- ECMAScript中的字符串是不可变的，也就是说，字符串一旦创建，他们的值就不能改变
 	- 要改变某个变量保存的字符串，需要重新开辟内存空间，然后修改变量的地址指向，之前的地址会被javascript垃圾回收机制不定时回收
 	- 如果两个字符串变量值相同，则指向相同的内存地址
-```javascript?linenums
+```javascript
 var a = "hello";
 var b = "hello";
 console.log(a === b);   //true
@@ -73,7 +73,7 @@ console.log(a === b);   //true
 - 区分大小写
 - 虽然只有两个值，但是所有类型中都有有着两个值等价的值
 - 其他类型转换为布尔值
-![其他类型转换为布尔类型](img/布尔值转换.png)
+![其他类型转换为布尔类型](javascript之变量/布尔值转换.png)
 
 #### Undefined类型
 - 表示变量未赋值

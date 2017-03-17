@@ -1,7 +1,7 @@
 ---
 title: gulp搭建静态项目结构
 date: 2017-01-10 21:03:08
-tags: 新建,模板,小书匠
+tags: gulp
 ---
 
 ## 基本文件结构
@@ -31,7 +31,7 @@ npm install --production
 ## 对文件进行打包操作
 当写项目的时候需要对项目进行**实时**打包，合并成单个文件
 - 将静态文件打包到dis中，并保存目录结构
-```javascript?linenums
+```javascript
 /**
  * 每次构建dist目录时先删除dist文件
  */
@@ -53,7 +53,7 @@ gulp.task('static', ['clear'], function() {
 ```
 
 - 将引入的css都打包成一个文件，如： `app.css`
-```javascript?linenums
+```javascript
 /**
  * 编译main.less文件
  */
@@ -65,7 +65,7 @@ gulp.task('less',  function() {
 });
 ```
 - 将第三方的js文件打包合并成一个 `vender.js` 文件
-```javascript?linenums
+```javascript
 /**
  * 压缩合并第三方依赖的JS文件到指定目录
  */
@@ -77,7 +77,7 @@ gulp.task('vender', function() {
 });
 ```
 - 将自己的js文件打包合并成一个 `bundle.js` 文件
-```javascript?linenums
+```javascript
 // html文件中的外部文件路径的引入问题
 // 使用angular的$templateCache将所有html文件读取出来生成一段js代码
 /**
@@ -113,7 +113,7 @@ gulp.task('script', ['template'], function() {
 });
 ```
 - 开启服务监视文件改动自动刷新浏览器
-```javascript?linenums
+```javascript
 /**
  * 监视js文件的变动
  */
@@ -141,7 +141,7 @@ gulp.task('server', function() {
 
 *这里的代码任务之间的依赖性太强，有很大的优化空间，代码仅供参考*
 
-```javascript?linenums
+```javascript
 /**
  * 1. 拷贝静态资源
  * 2. 压缩合并第三方JS文件

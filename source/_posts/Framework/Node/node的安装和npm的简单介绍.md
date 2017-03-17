@@ -1,7 +1,7 @@
 ---
 title: node的安装和npm的简单介绍
 date: 2016-03-06
-tags: 新建,模板,小书匠
+tags: nodejs
 grammar_cjkRuby: true
 ---
 
@@ -23,8 +23,7 @@ grammar_cjkRuby: true
 - 点击属性面板的环境变量按钮，弹出环境变量面板
 - 找到系统变量的path，双击，将nodejs的bin目录url添加到后面即可
 *注意*：在添加的时候确保前面有一个英文的分号
-![配置环境变量](img/配置环境变量.jpg)
-![enter description here][1]
+![配置环境变量](node的安装和npm的简单介绍/配置环境变量.jpg)
 - 配置完之后继续输入命令，查看node和npm的版本
 ## npm介绍
 [npm官网](https://www.npmjs.com/)

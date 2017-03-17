@@ -29,7 +29,7 @@ Angularjs拥有一些内建的指令，像ngBind、ngModel和ngClass。非常类
 
 指令的运行原理 compile和link
 
-![img](ng-link.png)
+![img](directive/ng-link.png)
 
 
 
@@ -80,7 +80,7 @@ myModule.directive("hello", function() {
 
 
 
-![img](ng-restrict.png)
+![img](directive/ng-restrict.png)
 
 
 
@@ -369,7 +369,7 @@ myModule.directive("hello", function() {
 
 ### scope绑定策略
 
-![img](ng-scope.png)
+![img](directive/ng-scope.png)
 
 @绑定
 
@@ -510,13 +510,13 @@ myModule.directive("greeting", function() {
 
 angular内置指令在我用的1.3.11中共计63个
 
-![img](ng-zhiling.png)
+![img](directive/ng-zhiling.png)
 
 
 
  ##### form指令
 
-![img](ng-form.png)
+![img](directive/ng-form.png)
 
 
 
@@ -673,13 +673,9 @@ angular.module('form-example2', []).directive('contenteditable', function() {
 });
 ```
 
-
-
 ### 自定义指令
 
-![img](expander.png)
-
-
+![img](directive/expander.png)
 
 ```html
 <html ng-app='expanderModule'>
@@ -860,11 +856,9 @@ expModule.controller("SomeController",function($scope) {
 }
 ```
 
-
-
 看到没，其实编写自定义指令还是比较困难的，所以我们可以去引入一些第三方的指令库
 
-![img](angular-ui.png)
+![img](directive/angular-ui.png)
 
 这样子，就可以极大地方便实现我们想要的功能了
 
@@ -924,7 +918,6 @@ expModule.controller("SomeController",function($scope) {
 </body>
 
 </html>
-
 ```
 
 ```javascript

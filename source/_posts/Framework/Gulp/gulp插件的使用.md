@@ -1,7 +1,7 @@
 ---
 title: gulp插件的使用
 date: 2017-03-06
-tags: 新建,模板,小书匠
+tags: gulp，
 grammar_cjkRuby: true
 ---
 
@@ -36,7 +36,7 @@ npm install --save-dev gulp-angular-templatecache
 #### 基本使用
 ##### `ulpfile.js`
 > 连接模板目录中所有.html文件的内容，并保存到public / templates.js（默认文件名）。
-```javascript?linenums
+```javascript
 var gulp = require('gulp');
 var templateCache = require('gulp-angular-templatecache');
 gulp.task('default', function () {
@@ -48,7 +48,7 @@ gulp.task('default', function () {
 
 ##### 结果` (public/templates.js)`
 > 输出样式（预处理）。
-```javascript?linenums
+```javascript
 angular.module("templates").run([$templateCache,
   function($templateCache) {
     $templateCache.put("template1.html",
@@ -89,23 +89,23 @@ angular.module("templates").run([$templateCache,
 
 	- transformUrl {function}
 	> Transform the generated URL before it's put into $templateCache. 
-```javascript?linenums
+```javascript
 transformUrl: function(url) {
     return url.replace(/\.tpl\.html$/, '.html')
 }
 ```
 	- templateHeader {string} [templateHeader=see below]
 	> Override template header. 
-```javascript?linenums
+```javascript
 var TEMPLATE_HEADER = 'angular.module("<%= module %>"<%= standalone %>).run(["$templateCache", function($templateCache) {';
 ```
 	- templateBody {string} [templateBody=see below]
 	> Override template body. 
-```javascript?linenums
+```javascript
 var TEMPLATE_BODY = '$templateCache.put("<%= url %>","<%= contents %>");'; 
 ```
 	- templateFooter {string} [templateFooter=see below]
 	> Override template footer.
-```java
+```javascript
 var TEMPLATE_FOOTER = '}]);';
 ```

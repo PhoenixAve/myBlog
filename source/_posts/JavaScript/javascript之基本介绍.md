@@ -28,7 +28,7 @@ tags: javascript
 	- JavaScript 解释器。用于解析和执行 JavaScript 代码，比如chrome的javascript解释器是V8。
 	- 数据存储。这是持久层。浏览器需要在硬盘上保存各种数据，例如 Cookie。新的 HTML 规范 (HTML5)定义了“网络数据库”，这是一个完整（但是轻便）的浏览器内数据库。
 
-![浏览器工作原理](img/20160313105554184.jpg)
+![浏览器工作原理](javascript之基本介绍/浏览器工作原理.jpg)
 
 [详细文章请移步](http://blog.csdn.net/dangnian/article/details/50876241)
 
@@ -39,7 +39,7 @@ tags: javascript
 
 ## javascript的使用方式
 1. 内嵌式（html页面编写javascript代码）
-```javascript?linenums
+```javascript
 <script type="text/javascript">
 		// 你的javascript代码
 </script>
@@ -58,12 +58,12 @@ tags: javascript
 		- 等html文档加载并显示完之后才执行下载完的js代码
 		- 只有外部脚本才可以使用
 		
-```javascript?linenums
+```javascript
 <script src="/javascripts/application.js" type="text/javascript" charset="utf-8" async defer></script>
 ```
 
 3. 内联式（在html标签中编写javascript代码）
-```javascript?linenums
+```javascript
 <input type="buttom" onclick="function(){}">
 ```
 
@@ -72,11 +72,12 @@ tags: javascript
 	- 一般用于解释某些复杂代码的逻辑，方便后期的维护与开发
 	- 用于对整个模块进行分割划分，方便于代码查找和维护
 	- 用于：模块、函数、复杂逻辑注释、文件注解、维护记录等
-```javascript?linenums
+```javascript
 //单行注释
 /*多行注释*/
 /**
   * 注解内容
   */
 ```
+
 好了，现在你可以开始编写你的javascript代码了

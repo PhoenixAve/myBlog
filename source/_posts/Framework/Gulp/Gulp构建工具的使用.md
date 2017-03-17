@@ -11,6 +11,8 @@ grammar_cjkRuby: true
 ## 简介
 本文主要是根据[gulp中文网文档](http://www.gulpjs.com.cn/docs/api/)和[gulp教程之gulp中文API](http://www.ydcss.com/archives/424)的内容综合而成，方便自己理解与学习`gulp`自动化工具的基本使用
 
+<!-- more -->
+
 ## 工具介绍
 1. `Gulp`是前端开发过程中一种基于流的代码构建工具，是自动化项目的构建利器；她不仅能对网站资源进行优化，而且在开发过程中很多重复的任务能够使用正确的工具自动完成；使用她，不仅可以很愉快的编写代码，而且大大提高我们的工作效率。
 2. 项目构建是指项目上线之前对项目源代码进行一系列处理，使其以最佳的形式运行于线上服务器。
@@ -27,8 +29,6 @@ grammar_cjkRuby: true
 > npm：https://www.npmjs.com/package/gulp
 > Github：https://github.com/gulpjs/gulp
 > Gitbook：https://wizardforcel.gitbooks.io/gulp-doc/content/2.html
-
-<!-- more -->
 
 ## 安装
 
@@ -66,7 +66,7 @@ grammar_cjkRuby: true
 
 ### `gulp.src(globs[,options])`
 指定需要处理的源文件的路径，`gulp`借鉴了Unix操作系统的管道（`pipe`）思想，前一级的输出，直接变成后一级的输入，`gulp.src`返回当前文件流至可用插件；
-```javascript?linenums
+```javascript
 // 通过gulp.src()读取文件，经过pipe管道流到gulp.dest()指定的文件中
 gulp.src('client/templates/*.jade')
   .pipe(jade())
@@ -84,7 +84,7 @@ gulp.src('client/templates/*.jade')
 > "\{\}"：匹配多个属性    例：`src/{a,b}.js`(包含a.js和b.js文件)  `src/*.{jpg,png,gif}`(src下的所有jpg/png/gif文件)；
 > "!"：排除文件    例：`!src/a.js`(不包含src下的a.js文件)；
 
-```javascript?linenums
+```javascript
 var gulp = require('gulp'); // 导入第三方gulp插件
 var less = require('gulp-less'); // 导入第三方gulp-less插件
  
@@ -113,7 +113,7 @@ gulp.task('testLess', function () { // 创建一个testLess任务
 类型`String` 默认值：' '
 设置输出路径以某个路径的某个组成部分为基础向后拼接，将会加在 `glob` 之前
 如：请想像一下在一个路径为 `client/js/somedir` 的目录中，有一个文件叫 `somefile.js` 
-```javascript?linenums
+```javascript
 // 没有设置base属性
 gulp.src('client/js/**/*.js') // 匹配 'client/js/somedir/somefile.js'
   .pipe(minify())
@@ -126,7 +126,7 @@ gulp.src('client/js/**/*.js', { base: 'client' })//设置输出路径为client�
 
 ### `gulp.dest(path[,options])`
 指定处理后的文件的输出路径。如果某文件夹不存在，将会自动创建它。
-```javascript?linenums
+```javascript
 gulp.src('./client/templates/*.jade')
   .pipe(jade())
   .pipe(gulp.dest('./build/templates')) // 将处理后的文件存放到当前文件夹下'build/templates'文件夹中
@@ -152,7 +152,7 @@ gulp.src('./client/templates/*.jade')
 
 ### `gulp.task(name[, deps], fn)`
 定义一个使用 `Orchestrator` 实现的任务（`task`）。
-```javascript?linenums
+```javascript
 gulp.task('taskname', function() {
   // 做一些事
 });
@@ -165,7 +165,7 @@ gulp.task('taskname', function() {
 #### `deps`
 类型（可选）：`StringArray`
 指定该任务所依赖的其他任务（**注意**：被依赖的任务需要返回当前任务的事件流，从而保证任务的执行顺序，请参考如下示例）
-```javascript?linenums
+```javascript
 gulp.task('testLess', function () {
 	// 返回事件流，确保该任务执行后才执行minicss任务
     return gulp.src(['less/style.less'])
@@ -185,7 +185,7 @@ gulp.task('minicss', ['testLess'], function () { //执行完testLess任务后再
 异步任务支持：任务可以异步执行，如果 `fn` 能做到以下其中一点
 
 1. 接受一个`callback`函数
-	```javascript?linenums
+	```javascript
 	// 在 shell 中执行一个命令
 	var exec = require('child_process').exec;
 	gulp.task('jekyll', function(cb) {
@@ -198,7 +198,7 @@ gulp.task('minicss', ['testLess'], function () { //执行完testLess任务后再
 	```
 
 2. 返回一个 `stream`（事件流）
-	```javascript?linenums
+	```javascript
 	gulp.task('somename', function() {
 	  var stream = gulp.src('client/**/*.js')
 		.pipe(minify())
@@ -208,7 +208,7 @@ gulp.task('minicss', ['testLess'], function () { //执行完testLess任务后再
 	```
 
 3. 返回一个 `promise`
-	```javascript?linenums
+	```javascript
 	var Q = require('q');
 	gulp.task('somename', function() {
 	  var deferred = Q.defer();
@@ -231,7 +231,7 @@ gulp.task('minicss', ['testLess'], function () { //执行完testLess任务后再
 2. 在 "two" 中，你需要添加一个提示来告诉系统它需要依赖第一个 `task` 完成。
 
 因此，这个例子的实际代码将会是这样：
-```javascript?linenums
+```javascript
 var gulp = require('gulp');
 // 返回一个 callback，因此系统可以知道它什么时候完成
 gulp.task('one', function(cb) {
@@ -261,7 +261,7 @@ gulp.task('default', ['one', 'two']);
 类型(可选)：`Function` 
 每个文件变化执行的回调函数
 
-```javascript?linenums
+```javascript
 var watcher = gulp.watch('js/**/*.js', ['uglify','reload']);
 watcher.on('change', function(event) {
   console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
